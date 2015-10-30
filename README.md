@@ -14,7 +14,7 @@ functions, therefore making them mockable like every other method call.
 # How to use:
 
 1. Add `Native` class as dependency to the class using native calls
-- Via constructor
+Via constructor
 ```php
 class SampleClass {
     /** @var Native */
@@ -24,7 +24,7 @@ class SampleClass {
     }
 }
 ```
-- Via setter
+Via setter
 ```php
 class SampleClass {
     /** @var Native */
