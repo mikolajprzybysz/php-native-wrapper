@@ -39,6 +39,7 @@ class Native
      */
     public function __call($name, array $arguments)
     {
+
         $result = null;
 
         $functionExist = function_exists($name);

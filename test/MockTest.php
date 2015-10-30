@@ -26,6 +26,26 @@ final class MockTest extends \PHPUnit_Framework_TestCase
 
         $this->assertSame($expectedOutput, $time);
     }
+
+    public function testDoSort()
+    {
+        $input = [3, 1, 2];
+        $expectedOutput = [1, 2, 3];
+
+        $native = $this->getMock(Native::class, ['sort']);
+        $native->expects($this->once())
+            ->method('sort')
+            ->willReturnCallback(function(&$a) use ($input){
+                $this->assertEquals($input, $a);
+                sort($a);
+                return true;
+            });
+
+        $sample = new SampleClass($native);
+        $output = $sample->doSort($input);
+
+        $this->assertSame($expectedOutput, $output);
+    }
 }
 
 /**
@@ -39,6 +59,7 @@ final class SampleClass
     {
         $this->native = $native;
     }
+
     /**
      * Method returns current timestamp
      *
@@ -47,5 +68,18 @@ final class SampleClass
     public function getTime()
     {
         return $this->native->time();
+    }
+
+    /**
+     * Method sorts array
+     *
+     * @param int[] $array to be sorted
+     *
+     * @return array
+     */
+    public function doSort(array $array)
+    {
+        $this->native->sort($array);
+        return $array;
     }
 }
