@@ -13,7 +13,7 @@ functions, therefore making them mockable like every other method call.
 
 # How to use:
 
-1. Add `Native` class as dependency to the class using native calls
+1.Add `Native` class as dependency to the class using native calls
 
 Via constructor
 ```php
@@ -35,7 +35,7 @@ class SampleClass {
     }
 }
 ```
-2. Whenever you need to run native function, call it via $native instance:
+2.Whenever you need to run native function, call it via $native instance:
 ```php
 class SampleClass {
     /** @var Native */
@@ -45,7 +45,7 @@ class SampleClass {
     }
 }
 ```
-3. Mock it as any other class
+3.Mock it as any other class
 ```php
 class SampleClassTest extends \PHPUnit_Framework_TestCase {
     public function testSampleMethod(){
