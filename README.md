@@ -73,4 +73,4 @@ class SampleClassTest extends \PHPUnit_Framework_TestCase {
 
 # What it does not support
 * extract
-*
+* sort and any method using reference in it's arguments
